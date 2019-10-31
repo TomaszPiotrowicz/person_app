@@ -21,7 +21,6 @@ public class PersonListManager {
     }
 
 
-
     public Optional<PersonList> findById(Long id) {
         return personListRepository.findById(id);
     }
@@ -30,16 +29,19 @@ public class PersonListManager {
         return personListRepository.findAll();
 
     }
-    public  PersonList save(PersonList personList) {
+
+    public PersonList save(PersonList personList) {
         return personListRepository.save(personList);
 
     }
-    public void deleteById(Long id){
+
+    public void deleteById(Long id) {
         personListRepository.deleteById(id);
     }
+
     @EventListener(ApplicationReadyEvent.class)
-    public void fillDb(){
-        save( new PersonList(1L,"Tom","pio", LocalDate.of(1990,1,1),"668473113"));
+    public void fillDb() {
+        save(new PersonList(1L, "Tom", "pio", LocalDate.of(1990, 1, 1), "668473113"));
     }
-    }
+}
 
